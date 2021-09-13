@@ -1,6 +1,6 @@
-window.addEventListener('load', () => {
+window.addEventListener('load', () => { // sert à lire à la fin si pas de defer dans le script html
     let plateau = document.getElementById('contain') // on utilise la variable (plateau) pour récupérer la div (contain) dans le js
-    let interval = setInterval(tourDeJeu, 400)
+    let interval = setInterval(tourDeJeu, 400) // gère la fonction tourDeJeu et la réactualise toutes les 400ms (boucle while infinie)
 
     let grille = new Grille(plateau, [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -26,9 +26,9 @@ window.addEventListener('load', () => {
         [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         // 0 = mur /-/ 1 = sol /-/ 2 = bonbon
-    ])
+    ]) // déclaration de la grille (mur, sol, bonbon)
 
-    let pacman = new Pacman(plateau, 5, 2, null);
+    let pacman = new Pacman(plateau, 5, 2, null); // déclaration du pacman sur le tableau en x=5, y=2 et sans direction définie (null)
 
     let fantomes = [
         new Fantome(plateau, 9, 11, 0), //bleu
@@ -37,7 +37,7 @@ window.addEventListener('load', () => {
         new Fantome(plateau, 11, 11, 0) // vert
     ]
 
-    document.addEventListener("keyup", clavier);
+    document.addEventListener("keyup", clavier); // pour ajouter comme event le fait de cliquer sur les flèches avec la fonction "clavier"
     function clavier(event) {
         if (event.key == "ArrowUp") {
             pacman.direction = 3
@@ -71,7 +71,7 @@ window.addEventListener('load', () => {
         }
         pacman.manger(grille, interval);
 
-        document.getElementById("score").innerHTML = "Score : " + grille.score;
+        document.getElementById("score").innerHTML = "Score : " + grille.score; // appelle la div du score par son id puis l'affiche
     }
 
 })

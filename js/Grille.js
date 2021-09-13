@@ -26,7 +26,7 @@ class Grille {
                     this.bonbon++
                 }
                 this.plateau.appendChild(monElem) // ajoute un élément html
-                monElem.style.gridArea = (i + 1) + "/" + (j + 1);
+                monElem.style.gridArea = (i + 1) + "/" + (j + 1); // l'élément est placé selon ses coordonnées
             }
         }
     }
